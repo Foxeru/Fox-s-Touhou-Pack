@@ -1,4 +1,7 @@
 Tutorial:gf:1
+Bad Apple:mom:4
+Endless Tewi-Ma Park:gf:1
+Marisa Stole the Precious Thing:gf:1
 Bopeebo:dad:1
 Fresh:dad:1
 Dad Battle:dad:1
