@@ -210,6 +210,11 @@ class PlayState extends MusicBeatState
 
 	private var executeModchart = false;
 
+	public static var inverted = new InvertShader();
+	var skyBG:FlxSprite;
+	var bgLimo:FlxSprite;
+	var overlayShit:FlxSprite;
+
 	// API stuff
 	
 	public function addObject(object:FlxBasic) { add(object); }
@@ -3335,7 +3340,132 @@ class PlayState extends MusicBeatState
 		{
 			// dad.dance();
 		}
-
+		
+		// Bad Apple
+		if (SONG.song.toLowerCase() == "bad apple")
+		{
+			if (curStep == 124) 
+			{	
+				dad.shader = inverted;
+				boyfriend.shader = inverted;
+				gf.shader = inverted;
+				limo.shader = inverted;
+				skyBG.shader = inverted;
+				bgLimo.shader = inverted;
+				overlayShit.shader = inverted;
+				fastCar.shader = inverted;
+			}
+			if (curStep == 256) 
+			{	
+				dad.shader = null;
+				boyfriend.shader = null;
+				gf.shader = null;
+				limo.shader = null;
+				skyBG.shader = null;
+				bgLimo.shader = null;
+				overlayShit.shader = null;
+				fastCar.shader = null;
+			}
+			if (curStep == 384) 
+			{	
+				dad.shader = inverted;
+				boyfriend.shader = inverted;
+				gf.shader = inverted;
+				limo.shader = inverted;
+				skyBG.shader = inverted;
+				bgLimo.shader = inverted;
+				overlayShit.shader = inverted;
+				fastCar.shader = inverted;
+			}
+			if (curStep == 512) 
+			{	
+				dad.shader = null;
+				boyfriend.shader = null;
+				gf.shader = null;
+				limo.shader = null;
+				skyBG.shader = null;
+				bgLimo.shader = null;
+				overlayShit.shader = null;
+				fastCar.shader = null;
+			}
+			if (curStep == 768) 
+			{	
+				dad.shader = inverted;
+				boyfriend.shader = inverted;
+				gf.shader = inverted;
+				limo.shader = inverted;
+				skyBG.shader = inverted;
+				bgLimo.shader = inverted;
+				overlayShit.shader = inverted;
+				fastCar.shader = inverted;
+			}
+			if (curStep == 1016) 
+			{	
+				dad.shader = null;
+				boyfriend.shader = null;
+				gf.shader = null;
+				limo.shader = null;
+				skyBG.shader = null;
+				bgLimo.shader = null;
+				overlayShit.shader = null;
+				fastCar.shader = null;
+			}
+			if (curStep == 1020) 
+			{	
+				dad.shader = inverted;
+				boyfriend.shader = inverted;
+				gf.shader = inverted;
+				limo.shader = inverted;
+				skyBG.shader = inverted;
+				bgLimo.shader = inverted;
+				overlayShit.shader = inverted;
+				fastCar.shader = inverted;
+			}
+			if (curStep == 1024) 
+			{	
+				dad.shader = null;
+				boyfriend.shader = null;
+				gf.shader = null;
+				limo.shader = null;
+				skyBG.shader = null;
+				bgLimo.shader = null;
+				overlayShit.shader = null;
+				fastCar.shader = null;
+			}
+			if (curStep == 1280) 
+			{	
+				dad.shader = inverted;
+				boyfriend.shader = inverted;
+				gf.shader = inverted;
+				limo.shader = inverted;
+				skyBG.shader = inverted;
+				bgLimo.shader = inverted;
+				overlayShit.shader = inverted;
+				fastCar.shader = inverted;
+			}
+			if (curStep == 1408) 
+			{	
+				dad.shader = null;
+				boyfriend.shader = null;
+				gf.shader = null;
+				limo.shader = null;
+				skyBG.shader = null;
+				bgLimo.shader = null;
+				overlayShit.shader = null;
+				fastCar.shader = null;
+			}
+			if (curStep == 1664) 
+			{	
+				dad.shader = inverted;
+				boyfriend.shader = inverted;
+				gf.shader = inverted;
+				limo.shader = inverted;
+				skyBG.shader = inverted;
+				bgLimo.shader = inverted;
+				overlayShit.shader = inverted;
+				fastCar.shader = inverted;
+			}
+		}
 
 		// yes this updates every step.
 		// yes this is bad
@@ -3377,6 +3507,48 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceRight');
 		}
 
+		if (curSong == 'Endless Tewi-Ma Park') 
+		{
+			switch (curStep)
+			{
+				case 108:
+					dad.playAnim('cheer', true);
+				case 124:
+					dad.playAnim('cheer', true);
+				case 172:
+					dad.playAnim('cheer', true);
+				case 188:
+					dad.playAnim('cheer', true);
+				case 236:
+					dad.playAnim('cheer', true);
+				case 252:
+					dad.playAnim('cheer', true);
+				case 300:
+					dad.playAnim('cheer', true);
+				case 316:
+					dad.playAnim('cheer', true);
+				case 364:
+					dad.playAnim('cheer', true);
+				case 380:
+					dad.playAnim('cheer', true);
+				case 428:
+					dad.playAnim('cheer', true);
+				case 444:
+					dad.playAnim('cheer', true);
+				case 236:
+					dad.playAnim('cheer', true);
+				case 492:
+					dad.playAnim('cheer', true);
+				case 508:
+					dad.playAnim('cheer', true);
+				case 556:
+					dad.playAnim('cheer', true);
+				case 572:
+					dad.playAnim('cheer', true);
+				case 1104:
+					dad.playAnim('cheer', true);
+			}
+		}
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
