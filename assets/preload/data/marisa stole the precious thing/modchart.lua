@@ -29,7 +29,7 @@ function start (song)
 	w = getScreenWidth()
 	w1 = (w / 4) * 2 + getWindowWidth() - 375 -- 100 is a general offset idk might work lol!
 	w2 = (w / -2.5) * 2 + getWindowWidth() - 1075
-	w3 = (w / 2000) * 3.55
+	w3 = (w / 2000) * 3.575
 	showOnlyStrums = true
 	setWindowPos((getScreenWidth() / 2 - getWindowWidth() / 2),  (getScreenHeight() / 2 - getWindowHeight() / 2))
     for i=0,3 do
@@ -62,7 +62,6 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 	if centerplayer then
 		for i=0,3 do
 			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.5)
-			tweenFadeOut(i,0, 1.5)
 		end
 		for i=4,7 do
 			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.5)
@@ -77,7 +76,7 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 end
 --i hate coding
 function stepHit(step)
-	if step == 440 then
+	if step == 496 then
 		twoplayer = true
 	end
 	if step == 512 then
@@ -113,5 +112,14 @@ function stepHit(step)
 		windowdefault = true
 		twoplayer = false
 		centerplayer = true
+	end
+	if step == 766 then
+		for i=0,3 do
+			tweenFadeOut(i,0, 0.5)
+		end
+	end
+	if step == 1312 then
+		showOnlyStrums = false
+		resizeWindow(1280, 720)
 	end
 end
