@@ -33,7 +33,6 @@ function start (song)
 	showOnlyStrums = true
 	setWindowPos((getScreenWidth() / 2 - getWindowWidth() / 2),  (getScreenHeight() / 2 - getWindowHeight() / 2))
     for i=0,3 do
-		tweenFadeOut(i,0, 0)
 		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 365,getActorAngle(i) + 360, 0.6, 'setDefault')
     end
 	for i =4,7 do 
@@ -43,6 +42,12 @@ end
 
 function update (elapsed)
 local currentBeat = (songPos / 1000)*(bpm/60)
+	if cambounce then
+		camHudAngle = camHudAngle - 0.64 * math.cos((currentBeat * math.pi))
+	end
+	if cambounceleft then
+		camHudAngle = camHudAngle + 0.64 * math.cos((currentBeat * math.pi))
+	end
 	if abibibubui then -- i don't know how to fix this the speed is inconsistent for whatever reason
 		if getWindowX() < w1 then
 			setWindowPos(getWindowX() + w3, (getScreenHeight() / 2 - getWindowHeight() / 2) + 8 * math.cos(currentBeat * math.pi))
@@ -67,6 +72,34 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.5)
 		end
 	end
+	if beat then
+		for i=4,4 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 55, getActorAngle(i), 0.05)
+		end
+		for i=5,5 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 25, getActorAngle(i), 0.05)
+		end
+		for i=6,6 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 25, getActorAngle(i), 0.05)
+		end
+		for i=7,7 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 55, getActorAngle(i), 0.05)
+		end
+	end
+	if reversebeat then
+		for i=4,4 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.35)
+		end
+		for i=5,5 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.35)
+		end
+		for i=6,6 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.35)
+		end
+		for i=7,7 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.35)
+		end
+	end
 	if windowdefault then
 		if t <= 1 then
 			t = t + elapsed
@@ -74,10 +107,75 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 		end
     end
 end
+
+
 --i hate coding
-function stepHit(step)
+function stepHit (step)
+	if step == 1 then
+		for i=0,3 do
+			tweenFadeOut(i,0, 0.5)
+		end
+	end
+	if step == 132
+	or step == 140
+	or step == 148
+	or step == 156 then
+		beat = true
+	end
+	if step == 134
+	or step == 142
+	or step == 150
+	or step == 158 then
+		beat = false
+		for i=4,7 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.35)
+		end
+	end
+	if step == 56
+	or step == 76
+	or step == 92
+	or step == 108 
+	or step == 352 then
+		beat = true
+		reversebeat = false
+	end
+	if step == 58
+	or step == 80
+	or step == 96
+	or step == 112
+	or step == 384 then
+		beat = false
+		reversebeat = true
+	end
+	if step == 94 
+	or step == 390 then
+		reversebeat = false
+	end
+	if step == 128
+	or step == 192
+	or step == 256
+	or step == 320 then
+		cambounce = true
+	end
+	if step == 160
+	or step == 288 then
+		cambounceleft = true
+	end
+	if step == 156 
+	or step == 188
+	or step == 220
+	or step == 284
+	or step == 316
+	or step == 348 then
+		cambounceleft = false
+		cambounce = false
+		camHudAngle = 0
+	end
 	if step == 496 then
 		twoplayer = true
+		for i=0,3 do
+			tweenFadeIn(i,1, 0.5)
+		end
 	end
 	if step == 512 then
 		abibibubui = true
@@ -121,5 +219,6 @@ function stepHit(step)
 	if step == 1312 then
 		showOnlyStrums = false
 		resizeWindow(1280, 720)
+		setWindowPos((getScreenWidth() / 2 - getWindowWidth() / 2),  (getScreenHeight() / 2 - getWindowHeight() / 2))
 	end
 end
