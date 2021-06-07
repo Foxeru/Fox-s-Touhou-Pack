@@ -412,11 +412,11 @@ class PlayState extends MusicBeatState
 					curStage = 'limo';
 					defaultCamZoom = 0.90;
 
-					var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset','week4'));
+					skyBG = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset','week4'));
 					skyBG.scrollFactor.set(0.1, 0.1);
 					add(skyBG);
 
-					var bgLimo:FlxSprite = new FlxSprite(-200, 480);
+					bgLimo = new FlxSprite(-200, 480);
 					bgLimo.frames = Paths.getSparrowAtlas('limo/bgLimo','week4');
 					bgLimo.animation.addByPrefix('drive', "background limo pink", 24);
 					bgLimo.animation.play('drive');
@@ -434,7 +434,7 @@ class PlayState extends MusicBeatState
 						}
 					}
 
-					var overlayShit:FlxSprite = new FlxSprite(-500, -600).loadGraphic(Paths.image('limo/limoOverlay','week4'));
+					overlayShit = new FlxSprite(-500, -600).loadGraphic(Paths.image('limo/limoOverlay','week4'));
 					overlayShit.alpha = 0.5;
 					// add(overlayShit);
 
