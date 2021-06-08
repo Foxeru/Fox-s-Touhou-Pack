@@ -22,7 +22,7 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 	end
 	if morebounce then 
 		for i=4,7 do
-			setActorY(_G['defaultStrum'..i..'Y'] + 12 * math.sin((currentBeat*2 * math.pi)), i)
+			setActorY(_G['defaultStrum'..i..'Y'] + 16 * math.sin((currentBeat*2 * math.pi)), i)
 		end
 	end
 	if windowbounce then

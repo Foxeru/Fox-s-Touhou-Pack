@@ -3506,49 +3506,6 @@ class PlayState extends MusicBeatState
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
 		}
-
-		if (curSong == 'Endless Tewi-Ma Park') 
-		{
-			switch (curStep)
-			{
-				case 108:
-					dad.playAnim('cheer', true);
-				case 124:
-					dad.playAnim('cheer', true);
-				case 172:
-					dad.playAnim('cheer', true);
-				case 188:
-					dad.playAnim('cheer', true);
-				case 236:
-					dad.playAnim('cheer', true);
-				case 252:
-					dad.playAnim('cheer', true);
-				case 300:
-					dad.playAnim('cheer', true);
-				case 316:
-					dad.playAnim('cheer', true);
-				case 364:
-					dad.playAnim('cheer', true);
-				case 380:
-					dad.playAnim('cheer', true);
-				case 428:
-					dad.playAnim('cheer', true);
-				case 444:
-					dad.playAnim('cheer', true);
-				case 236:
-					dad.playAnim('cheer', true);
-				case 492:
-					dad.playAnim('cheer', true);
-				case 508:
-					dad.playAnim('cheer', true);
-				case 556:
-					dad.playAnim('cheer', true);
-				case 572:
-					dad.playAnim('cheer', true);
-				case 1104:
-					dad.playAnim('cheer', true);
-			}
-		}
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
@@ -3604,7 +3561,58 @@ class PlayState extends MusicBeatState
 		{
 			boyfriend.playAnim('hey', true);
 		}
-
+		if (curSong == 'Endless Tewi-Ma Park') 
+			{
+				switch (curStep)
+				{
+					case 108:
+						dad.playAnim('cheer', true);
+					case 124:
+						dad.playAnim('cheer', true);
+					case 172:
+						dad.playAnim('cheer', true);
+					case 188:
+						dad.playAnim('cheer', true);
+					case 236:
+						dad.playAnim('cheer', true);
+					case 252:
+						dad.playAnim('cheer', true);
+					case 300:
+						dad.playAnim('cheer', true);
+					case 316:
+						dad.playAnim('cheer', true);
+					case 364:
+						dad.playAnim('cheer', true);
+					case 380:
+						dad.playAnim('cheer', true);
+					case 428:
+						dad.playAnim('cheer', true);
+					case 444:
+						dad.playAnim('cheer', true);
+					case 492:
+						dad.playAnim('cheer', true);
+					case 508:
+						dad.playAnim('cheer', true);
+					case 556:
+						dad.playAnim('cheer', true);
+					case 572:
+						dad.playAnim('cheer', true);
+					case 780:
+						dad.playAnim('cheer', true);
+					case 908:
+						dad.playAnim('cheer', true);
+					case 1104:
+						dad.playAnim('cheer', true);
+				}
+			}
+			if (curSong == 'Usatei 2011') 
+				{
+					switch (curStep)
+					{
+						case 1436:
+							dad.playAnim('cheer', true);
+					}
+				}
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 			{
 				boyfriend.playAnim('hey', true);
