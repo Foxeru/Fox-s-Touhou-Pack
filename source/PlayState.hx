@@ -3613,6 +3613,68 @@ class PlayState extends MusicBeatState
 							dad.playAnim('cheer', true);
 					}
 				}
+				if (curSong == 'Mushi Miko Unya No Happy-Py') 
+					{
+						switch (curStep)
+						{
+							case 644: 
+								dad.playAnim('cheer', true);
+							case 652:
+								dad.playAnim('cheer', true);
+							case 660:
+								dad.playAnim('cheer', true);
+							case 668:
+								dad.playAnim('cheer', true);
+							case 676:
+								dad.playAnim('cheer', true);
+							case 684:
+								dad.playAnim('cheer', true);
+							case 692:
+								dad.playAnim('cheer', true);
+							case 700:
+								dad.playAnim('cheer', true);
+							case 708:
+								dad.playAnim('cheer', true);
+							case 716: 
+								dad.playAnim('cheer', true);
+							case 1435:
+								dad.playAnim('cheer', true);
+							case 1452:
+								dad.playAnim('cheer', true);
+							case 1468:
+								dad.playAnim('cheer', true);
+							case 1580:
+								dad.playAnim('cheer', true);
+							case 1596:
+								dad.playAnim('cheer', true);
+							case 1732: 
+								dad.playAnim('cheer', true);
+							case 1739:
+								dad.playAnim('cheer', true);
+							case 1748:
+								dad.playAnim('cheer', true);
+							case 1756:
+								dad.playAnim('cheer', true);
+							case 1763:
+								dad.playAnim('cheer', true);
+							case 1772:
+								dad.playAnim('cheer', true);
+							case 1780:
+								dad.playAnim('cheer', true);
+							case 1787:
+								dad.playAnim('cheer', true);
+							case 1796:
+								dad.playAnim('cheer', true);
+							case 1804:
+								dad.playAnim('cheer', true);
+							case 1912:
+								dad.playAnim('cheer', true);
+							case 1264:
+								boyfriend.playAnim('scared', true);
+							
+						}
+
+					}
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 			{
 				boyfriend.playAnim('hey', true);
