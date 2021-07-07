@@ -40,14 +40,6 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 			setActorY(_G['defaultStrum'..i..'Y'] + 4 * math.sin((currentBeat * math.pi)), i)
 		end
 	end
-	if twoplayer then
-		for i=0,3 do
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 365, getActorAngle(i), 0.5)
-		end
-		for i=4,7 do
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 275, getActorAngle(i), 0.5)
-		end
-	end
 	if curStep >= 1184 and curStep < 1200 
 	or curStep >= 2200 and curStep < 2216 then
 		cameraAngle = cameraAngle + (math.pi * 0.725)
@@ -58,6 +50,25 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 	end
 end
 
+function twoPlayer()
+		for i=0,3 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 365, getActorAngle(i), 0.5, 'setDefault')
+			tweenFadeIn(i,1, 0.5)
+		end
+		for i=4,7 do
+			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 275, getActorAngle(i), 0.5, 'setDefault')
+		end
+end
+
+function onePlayer()
+	for i=0,3 do
+		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 365,getActorAngle(i), 0.5, 'setDefault')
+		tweenFadeOut(i,0, 0.5)
+    end
+	for i =4,7 do 
+		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 275,getActorAngle(i), 0.5, 'setDefault')
+	end
+end
 function stepHit (step)
 	if step == 1 then
 		for i=0,3 do
@@ -134,28 +145,10 @@ function stepHit (step)
 		ohlawdhecoming = false
 	end
 	if step == 1296 then
-		twoplayer = true
-		for i=0,3 do
-			tweenFadeIn(i,1, 0.5)
-		end
-	end
-	--i'm not sure what effect is causing 2P to stutter so 
-	--i'm just gonna set everything as false in a single funcntion lol!
-	if step == 1695 then
-		bounce = false
-		morebounce = false
-		ohlawdhecoming = false
-		wave = false
-		lowbounce = false
-		twoplayer = false
+		twoPlayer()
 	end
 	if step == 1696 then
-		for i=0,7 do
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'], getActorAngle(i), 0.5)
-		end
-		for i=0,3 do
-			tweenFadeOut(i,0, 0.5)
-		end
+		onePlayer()
 	end
 	if step == 2216 then
 		for i=0,7 do

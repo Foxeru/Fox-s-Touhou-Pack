@@ -55,15 +55,6 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 			setWindowPos(w2, (getScreenHeight() / 2 - getWindowHeight() / 2) + 8 * math.cos(currentBeat * math.pi)) 
 		end
 	end
-	if twoplayer then
-		for i=0,3 do
-			tweenFadeIn(i,1, 0)
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 365, getActorAngle(i), 0.5)
-		end
-		for i=4,7 do
-			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 275, getActorAngle(i), 0.5)
-		end
-	end
 	if beat then
 		for i=4,4 do
 			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 55, getActorAngle(i), 0.05)
@@ -76,11 +67,6 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 		end
 		for i=7,7 do
 			tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 55, getActorAngle(i), 0.05)
-		end
-	end
-	if centerplayer then
-		for i=0,7 do
-			setActorX(_G['defaultStrum'..i..'X'], i)
 		end
 	end
 	if violentshaking then
@@ -117,6 +103,25 @@ local currentBeat = (songPos / 1000)*(bpm/60)
 	end
 end
 
+function twoPlayer()
+	for i=0,3 do
+		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 365, getActorAngle(i), 0.5, 'setDefault')
+		tweenFadeIn(i,1, 0.5)
+	end
+	for i=4,7 do
+		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 275, getActorAngle(i), 0.5, 'setDefault')
+	end
+end
+
+function onePlayer()
+	for i=0,3 do
+		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] + 365,getActorAngle(i), 0.5, 'setDefault')
+		tweenFadeOut(i,0, 0.5)
+	end
+	for i =4,7 do 
+		tweenPosXAngle(i, _G['defaultStrum'..i..'X'] - 275,getActorAngle(i), 0.5, 'setDefault')
+	end
+end
 
 --i hate coding
 function stepHit (step)
@@ -179,10 +184,7 @@ function stepHit (step)
 		camHudAngle = 0
 	end
 	if step == 496 then
-		twoplayer = true
-		for i=0,3 do
-			tweenFadeIn(i,1, 0.5)
-		end
+		twoPlayer()
 	end
 	if step == 512 then
 		abibibubui = true
@@ -215,11 +217,7 @@ function stepHit (step)
 		lastX = getWindowX()
 		lastY = getWindowY()
 		windowdefault = true
-		twoplayer = false
-		centerplayer = true
-	end
-	if step == 768 then
-		centerplayer = false
+		onePlayer()
 	end
 	if step == 766 then
 		for i=0,3 do

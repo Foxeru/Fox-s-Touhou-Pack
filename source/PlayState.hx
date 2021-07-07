@@ -3609,7 +3609,17 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 					{
-						case 1436:
+						case 1368:
+							dad.playAnim('cheer', true);
+						case 1432:
+							dad.playAnim('cheer', true);
+						case 1496:
+							dad.playAnim('cheer', true);
+						case 1560:
+							dad.playAnim('cheer', true);
+						case 1624:
+							dad.playAnim('cheer', true);
+						case 1688:
 							dad.playAnim('cheer', true);
 					}
 				}
